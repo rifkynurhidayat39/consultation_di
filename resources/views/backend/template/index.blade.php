@@ -201,6 +201,9 @@
     <a href="{{ route('banner.index') }}" class="nav-link {{ request()->routeIs('films.*') ? 'active' : '' }}">
       <i class="bi bi-briefcase"></i> Banner
     </a>
+    <a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('films.*') ? 'active' : '' }}">
+      <i class="bi bi-briefcase"></i> News and Updates
+    </a>
 
    
   </div>
