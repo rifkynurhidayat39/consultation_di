@@ -197,13 +197,26 @@
     <input type="text" id="menuSearch" placeholder="Cari menu...">
   </div>
 
-  <div class="nav-section" id="menuList">
-    <a href="{{ route('banner.index') }}" class="nav-link {{ request()->routeIs('films.*') ? 'active' : '' }}">
-      <i class="bi bi-briefcase"></i> Banner
+ <div class="nav-section" id="menuList">
+
+    <a href="{{ route('banner.index') }}"
+       class="nav-link {{ request()->routeIs('banner.*') ? 'active' : '' }}">
+        <i class="bi bi-briefcase"></i> Banner
     </a>
-    <a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('films.*') ? 'active' : '' }}">
-      <i class="bi bi-briefcase"></i> News and Updates
+
+    <a href="{{ route('news.index') }}"
+       class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">
+        <i class="bi bi-newspaper"></i> News and Updates
     </a>
+
+    <a href="{{ route('faq.index') }}"
+       class="nav-link {{ request()->routeIs('faqs.*') ? 'active' : '' }}">
+        <i class="bi bi-question-circle"></i> FAQs
+    </a>
+
+</div>
+
+
 
    
   </div>

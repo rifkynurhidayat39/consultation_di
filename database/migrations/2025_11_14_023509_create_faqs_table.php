@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
+
+            // pertanyaan user
+            $table->text('question');
+
+            // jawaban admin (boleh kosong dulu)
+            $table->text('answer')->nullable();
+
+            // status faq
+            $table->enum('status', ['pending', 'answered'])->default('pending');
+
             $table->timestamps();
         });
     }
