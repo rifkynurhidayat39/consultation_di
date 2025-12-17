@@ -33,12 +33,16 @@ Route::resource('faq', FaqController::class)->except(['show']);
 
 // CRUD Visi Misi (backend)
 Route::prefix('admin')->group(function () {
-    Route::get('/vision-mission', [VisionMissionController::class, 'edit'])
+    Route::get('/vision-mission', [VisionMissionController::class, 'index'])
+        ->name('vision-mission.index');
+
+    Route::get('/vision-mission/{id}/edit', [VisionMissionController::class, 'edit'])
         ->name('vision-mission.edit');
 
-    Route::post('/vision-mission', [VisionMissionController::class, 'update'])
+    Route::put('/vision-mission/{id}', [VisionMissionController::class, 'update'])
         ->name('vision-mission.update');
 });
+
 
 // Contact (tanpa create & store)
 Route::resource('contact', ContactController::class)

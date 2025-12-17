@@ -219,6 +219,11 @@
     <i class="bi bi-geo-alt"></i> Contact
 </a>
 
+<a href="{{ route('vision-mission.index') }}"
+   class="nav-link {{ request()->routeIs('vision-mission.*') ? 'active' : '' }}">
+    <i class="bi bi-geo-alt"></i> Vision Mission
+</a>
+
 
 </div>
 
