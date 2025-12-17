@@ -204,6 +204,11 @@
         <i class="bi bi-briefcase"></i> Banner
     </a>
 
+    <a href="{{ route('sambutan.index') }}"
+       class="nav-link {{ request()->routeIs('sambutan.*') ? 'active' : '' }}">
+        <i class="bi bi-question-circle"></i> Sambutan
+    </a>
+
     <a href="{{ route('news.index') }}"
        class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">
         <i class="bi bi-newspaper"></i> News and Updates
@@ -213,6 +218,7 @@
        class="nav-link {{ request()->routeIs('faqs.*') ? 'active' : '' }}">
         <i class="bi bi-question-circle"></i> FAQs
     </a>
+
 
 </div>
 

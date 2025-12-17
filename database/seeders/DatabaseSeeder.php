@@ -15,11 +15,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Membuat user default
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => bcrypt('password123'), // jangan lupa password
+        ]);
+
+        // Memanggil seeder Sambutan
+        $this->call([
+            SambutanSeeder::class,
         ]);
     }
 }
