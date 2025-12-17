@@ -1,0 +1,455 @@
+body {
+      font-family: "Poppins", sans-serif;
+      overflow-x: hidden;
+    }
+   /* Header */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  position: relative;
+  gap: 40px;
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  min-width: 200px;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  font-size: 18px;
+  color: #111;
+}
+
+/* Main Navigation */
+.main-nav {
+  flex: 1;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.nav-list > li {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #222;
+  font-size: 13px;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  color: #b21a1a;
+}
+
+/* Header Right Section */
+.header-right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  min-width: 200px;
+  justify-content: flex-end;
+}
+
+/* Language Selector */
+.lang-selector {
+  position: relative;
+}
+
+.lang {
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #222;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  display: none;
+  z-index: 200;
+  min-width: 100px;
+}
+
+.lang-selector:hover .lang-dropdown {
+  display: block;
+}
+
+.lang-dropdown li {
+  list-style: none;
+}
+
+.lang-dropdown a {
+  padding: 8px 12px;
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-size: 13px;
+}
+
+.lang-dropdown a:hover,
+.lang-dropdown a.active {
+  background: #f5f5f5;
+}
+
+/* Auth Button */
+.auth-btn {
+  color: #fff;
+  background: #b21a1a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.auth-btn:hover {
+  background: #981616;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger-box {
+  width: 24px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 24px;
+  height: 2px;
+  background-color: #222;
+  position: absolute;
+  transition: transform 0.15s ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -8px;
+}
+
+.hamburger-inner::after {
+  bottom: -8px;
+}
+
+/* Hamburger Animation */
+.hamburger[aria-expanded="true"] .hamburger-inner {
+  transform: rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+/* Dropdown */
+.has-dropdown { position:relative; }
+.has-dropdown .caret { font-size:11px; margin-left:6px; opacity:0.8; }
+.dropdown { 
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  margin-top: 0;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  min-width: 200px;
+  display: none;
+  border-radius: 4px;
+  padding: 8px 0;
+  z-index: 200;
+}
+.has-dropdown:hover .dropdown { 
+  display: block;
+}
+.dropdown li { 
+  list-style: none;
+}
+.dropdown a { 
+  display: block;
+  padding: 10px 14px;
+  color: #333;
+  font-size: 14px;
+  text-transform: none; /* reset uppercase */
+  letter-spacing: normal;
+}
+.dropdown a:hover { 
+  background: #f5f5f5;
+}
+    /* ===== HERO SECTION ===== */
+    .hero-section {
+      background-image: url('https://telfer.uottawa.ca/assets/careercentre/images/_cache/1920x960/Consultation-one-on-one_AdobeStock_135292415-2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 380px;
+      position: relative;
+    }
+
+    .hero-card {
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 30px 40px;
+      max-width: 700px;
+      margin: -70px auto 0;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .hero-card h4 {
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* ===== STEP SECTION ===== */
+    .step-section {
+      padding: 80px 0;
+      background-color: #fff;
+    }
+    .step-section h5 {
+      font-weight: 600;
+      margin-bottom: 60px;
+    }
+    .step {
+      margin-bottom: 70px;
+    }
+    .step img {
+      max-width: 320px;
+    }
+    .btn-danger {
+      background-color: #b30000;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 30px;
+    }
+    .btn-danger:hover {
+      background-color: #8f0000;
+    }
+
+   .footer {
+  background: linear-gradient(135deg, #8b0000, #b71c1c);
+  color: #fff;
+  padding: 60px 0 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Struktur Footer */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 40px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  color: #ffeb3b;
+  margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column ul li {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-btn {
+  background: #ffeb3b;
+  color: #000;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+  display: flex;
+  justify-content: center; /* buat teks di tengah */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px 40px;
+  margin-top: 40px;
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.footer-bottom p {
+  margin: 0;
+  text-align: center;
+  flex: 1; /* agar teks tetap di tengah */
+}
+
+.footer-bottom a {
+  color: #ffeb3b;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* SOCIAL ICONS POSISI DI KANAN */
+.social-inline {
+  position: absolute;
+  right: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Warna Hover Khas */
+.social-icon.instagram:hover { color: #E1306C; }
+.social-icon.facebook:hover { color: #1877F2; }
+.social-icon.whatsapp:hover { color: #25D366; }
+.social-icon.tiktok:hover { color: #00FFFF; }
+.social-icon.youtube:hover { color: #FF0000; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    position: static;
+    text-align: center;
+  }
+
+  .social-inline {
+    position: static;
+    justify-content: center;
+    margin-top: 10px;
+}
+}
