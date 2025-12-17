@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_messages', function (Blueprint $table) {
+        Schema::create('vision_missions', function (Blueprint $table) {
             $table->id();
+            $table->text('vision');
+            $table->text('mission');
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contact_messages');
+        Schema::dropIfExists('visi_misi');
     }
 };

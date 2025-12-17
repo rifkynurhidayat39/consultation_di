@@ -204,22 +204,27 @@
         <i class="bi bi-briefcase"></i> Banner
     </a>
 
-    <a href="{{ route('sambutan.index') }}"
-       class="nav-link {{ request()->routeIs('sambutan.*') ? 'active' : '' }}">
-        <i class="bi bi-question-circle"></i> Sambutan
-    </a>
+<a href="{{ route('news.index') }}"
+   class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">
+    <i class="bi bi-newspaper"></i> News and Updates
+</a>
 
-    <a href="{{ route('news.index') }}"
-       class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">
-        <i class="bi bi-newspaper"></i> News and Updates
-    </a>
+<a href="{{ route('faq.index') }}"
+   class="nav-link {{ request()->routeIs('faq.*') ? 'active' : '' }}">
+    <i class="bi bi-question-circle"></i> FAQs
+</a>
+<a href="{{ route('contact.index') }}"
+   class="nav-link {{ request()->routeIs('contact.*') ? 'active' : '' }}">
+    <i class="bi bi-geo-alt"></i> Contact
+</a>
 
-    <a href="{{ route('faq.index') }}"
-       class="nav-link {{ request()->routeIs('faqs.*') ? 'active' : '' }}">
-        <i class="bi bi-question-circle"></i> FAQs
-    </a>
-
-
+<a href="{{ route('vision-mission.index') }}"
+   class="nav-link {{ request()->routeIs('vision-mission.*') ? 'active' : '' }}">
+    <i class="bi bi-geo-alt"></i> Vision Mission
+</a>
+<a href="{{ route('sambutan.index') }}"
+   class="nav-link {{ request()->routeIs('sambutan.*') ? 'active' : '' }}">
+    <i class="bi bi-geo-alt"></i> Sambutan
 </div>
 
 
