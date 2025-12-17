@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\VisionMissionController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,10 @@ use App\Http\Controllers\ContactController;
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.home');
 });
+Route::get('/about', [FrontendController::class, 'aboutus'])->name('about');
+
 
 /*
 |--------------------------------------------------------------------------
