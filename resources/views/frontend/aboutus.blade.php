@@ -24,7 +24,7 @@
       <nav id="mainNav" class="main-nav" role="navigation" aria-label="Main navigation">
         <ul class="nav-list">
           <li><a href="home.html">Home</a></li>
-          <li><a href="aboutus.html"class="active">About Us</a></li>
+          <a href="{{ route('about') }}">About Us</a>
           <li class="has-dropdown">
             <a href="program.html">Program <span class="caret">▾</span></a>
             <ul class="dropdown">
@@ -78,18 +78,26 @@
   </section>
 
   <!-- VISI MISI -->
-  <section class="visi-misi-section">
-    <div class="container visi-misi-container">
-      <div class="card">
-        <h3>Visi</h3>
-        <p>Meningkatkan fleksibilitas dan mutu pendidikan melalui pengembangan SDM unggul.</p>
-      </div>
-      <div class="card">
-        <h3>Misi</h3>
-        <p>Mendorong riset, inovasi, dan kemitraan strategis di bidang pendidikan dan pelatihan profesional.</p>
-      </div>
+<section class="visi-misi-section">
+  <div class="container visi-misi-container">
+
+    <div class="card">
+      <h3>Visi</h3>
+      <p>
+        {{ $visionMission->vision ?? 'Visi belum tersedia' }}
+      </p>
     </div>
-  </section>
+
+    <div class="card">
+      <h3>Misi</h3>
+      <p>
+        {{ $visionMission->mission ?? 'Misi belum tersedia' }}
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- OUR CONSULTANT (Dinamis) -->
   <section id="our-consultant" class="consultant-section">

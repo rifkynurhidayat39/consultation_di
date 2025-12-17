@@ -24,7 +24,8 @@
       <nav id="mainNav" class="main-nav" role="navigation" aria-label="Main navigation">
         <ul class="nav-list">
           <li><a href="home.html">Home</a></li>
-          <li><a href="aboutus.html">About Us</a></li>
+          
+          <a href="{{ route('about') }}">About Us</a>
           <li class="has-dropdown">
             <a href="program.html">Program <span class="caret">▾</span></a>
             <ul class="dropdown">
