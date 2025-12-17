@@ -5,6 +5,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\VisionMissionController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::resource('banner', BannerController::class)->except(['show']);
 // CRUD News
 Route::resource('news', NewsController::class)->except(['show']);
 
-// CRUD FAQ (backend)
+// CRUD FAQ
 Route::resource('faq', FaqController::class)->except(['show']);
 
 // CRUD Visi Misi (backend)
@@ -38,3 +39,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/vision-mission', [VisionMissionController::class, 'update'])
         ->name('vision-mission.update');
 });
+
+// Contact (tanpa create & store)
+Route::resource('contact', ContactController::class)
+    ->only(['index', 'edit', 'update']);
