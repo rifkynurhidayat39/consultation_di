@@ -6,26 +6,32 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
 
-            // info utama
+            // Informasi utama
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
 
-            // lokasi
-            $table->string('address');
-            $table->string('google_maps_link')->nullable();
+            // Lokasi
+            $table->string('address')->nullable();
+            $table->text('google_maps_link')->nullable();
 
-            // penanda lokasi utama (opsional)
+            // Penanda kontak utama
             $table->boolean('is_primary')->default(false);
 
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('contacts');

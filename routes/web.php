@@ -14,9 +14,7 @@ use App\Http\Controllers\SambutanController;
 | Frontend
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () {
-    return view('frontend.home');
-});
+Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/about', [FrontendController::class, 'aboutus'])->name('about');
 
 

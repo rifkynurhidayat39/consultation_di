@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
         ]);
 
-        // PANGGIL CONTACT SEEDER
+        // PANGGIL SEEDERS
         $this->call([
             ContactSeeder::class,
+            SambutanSeeder::class,
         ]);
     }
 }

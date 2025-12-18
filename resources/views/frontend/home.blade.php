@@ -108,14 +108,23 @@
   <section class="intro-wrapper">
     <div class="intro">
       <div class="card">
-        <h3>Empowering Careers, Ensuring Compliance</h3>
-        <p>Explore opportunities as a digital nomad with our innovative Bali Nomad Academy (BNA). Experience hands-on learning in various coworking spaces across Bali, where you'll gain practical skills while enjoying the island's growing reputation as a digital nomad hub.</p>
-        <p>Our program offers a unique blend of professional development and cultural immersion, helping you build a global career while experiencing the vibrant lifestyle that Bali has to offer.</p>
-        <p>Through our comprehensive curriculum, you'll develop essential skills in remote work, digital marketing, and international business practices.</p>
-             </div>
+        @if($sambutan)
+          <h3>{{ $sambutan->title }}</h3>
+          <p>{{ $sambutan->description }}</p>
+        @else
+          <h3>Empowering Careers, Ensuring Compliance</h3>
+          <p>Explore opportunities as a digital nomad with our innovative Bali Nomad Academy (BNA). Experience hands-on learning in various coworking spaces across Bali, where you'll gain practical skills while enjoying the island's growing reputation as a digital nomad hub.</p>
+          <p>Our program offers a unique blend of professional development and cultural immersion, helping you build a global career while experiencing the vibrant lifestyle that Bali has to offer.</p>
+          <p>Through our comprehensive curriculum, you'll develop essential skills in remote work, digital marketing, and international business practices.</p>
+        @endif
+      </div>
 
       <div class="side-image">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=60" alt="student smiling">
+        @if($sambutan && $sambutan->image)
+          <img src="{{ asset('storage/' . $sambutan->image) }}" alt="{{ $sambutan->title }}">
+        @else
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=60" alt="student smiling">
+        @endif
       </div>
     </div>
   </section> <!-- end intro-wrapper -->

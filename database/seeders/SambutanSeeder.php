@@ -16,9 +16,9 @@ class SambutanSeeder extends Seeder
         Sambutan::updateOrCreate(
             ['id' => 1], // pastikan id tetap 1
             [
-                'title' => 'Resep',
-                'description' => 'Resep masakan untuk anjing...',
-                'image' => 'sambutan/kritik.png', // simpan di storage/app/public/sambutan
+                'title' => 'Selamat Datang di Consultation Denpasar Institute',
+                'description' => 'Kami adalah mitra terpercaya Anda dalam konsultasi pendidikan, pertukaran pelajar, dan pengembangan karir global. Bergabunglah dengan kami untuk membuka peluang dunia yang tak terbatas.',
+                'image' => null, // bisa diisi nanti jika ada gambar
             ]
         );
     }
