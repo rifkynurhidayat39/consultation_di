@@ -16,7 +16,7 @@ class SambutanSeeder extends Seeder
         Sambutan::updateOrCreate(
             ['id' => 1], // pastikan id tetap 1
             [
-                'title' => 'Selamat Datang di Consultation Denpasar Institute',
+                'title' => 'Welcome to Consultation Denpasar Institute',
                 'description' => 'Kami adalah mitra terpercaya Anda dalam konsultasi pendidikan, pertukaran pelajar, dan pengembangan karir global. Bergabunglah dengan kami untuk membuka peluang dunia yang tak terbatas.',
                 'image' => null, // bisa diisi nanti jika ada gambar
             ]
