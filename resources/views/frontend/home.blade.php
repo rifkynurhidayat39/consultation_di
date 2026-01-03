@@ -11,6 +11,83 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- added fontawesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Scroll Reveal Animation Styles -->
+  <style>
+    /* === FIX HORIZONTAL SCROLL ISSUES === */
+    /* Prevent horizontal overflow globally */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+
+    /* Ensure all containers respect viewport width */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Fix for images and media */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Fix for hero/slider elements */
+    .hero, .slider, .slide {
+      width: 100%;
+      max-width: 100vw;
+      overflow: hidden;
+    }
+
+    /* Fix for navigation buttons */
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .nav.prev {
+      left: 20px;
+    }
+
+    .nav.next {
+      right: 20px;
+    }
+
+    /* === SCROLL REVEAL ANIMATIONS === */
+    /* Kelas untuk elemen yang akan dianimasi - default hidden */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      /* Ensure animations don't cause overflow */
+      will-change: opacity, transform;
+    }
+
+    /* Kelas aktif saat elemen masuk viewport */
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Opsional: Delay untuk efek bertahap */
+    .scroll-reveal[data-delay="1"] { transition-delay: 0.2s; }
+    .scroll-reveal[data-delay="2"] { transition-delay: 0.4s; }
+    .scroll-reveal[data-delay="3"] { transition-delay: 0.6s; }
+
+    /* === RESPONSIVE FIXES === */
+    @media (max-width: 768px) {
+      .nav.prev, .nav.next {
+        display: none; /* Hide nav buttons on mobile to prevent overflow */
+      }
+
+      .hero {
+        min-height: 60vh; /* Reduce hero height on mobile */
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -104,8 +181,8 @@
   </header> <!-- end hero -->
 
   <!-- REMOVED: feature-section (dipindah ke bawah intro-wrapper) -->
-  
-  <section class="intro-wrapper">
+
+  <section class="intro-wrapper scroll-reveal">
     <div class="intro">
       <div class="card">
         @if($sambutan)
@@ -130,7 +207,7 @@
   </section> <!-- end intro-wrapper -->
 
   <!-- BARU: About section standalone (kanan dari feature-section) -->
-  <section class="about-section">
+  <section class="about-section scroll-reveal" data-delay="1">
     <div class="about-custom">
       <!-- Kolom Kiri (45%) -->
       <div class="about-left">
@@ -193,7 +270,7 @@
       </div>
     </section>
 
-    <section class="programs" id="programs">
+    <section class="programs scroll-animate" id="programs">
       <h2>Explore Our Programs</h2>
       <div class="grid">
         <article class="program">
@@ -219,7 +296,7 @@
       </div>
     </section>
 
-    <section class="how">
+    <section class="how scroll-reveal">
       <h2>How it Works?</h2>
 
       <div class="steps">
@@ -269,7 +346,7 @@
       </div>
     </section>
 
-    <section class="reviews-section">
+    <section class="reviews-section scroll-animate">
       <h2>OUR CLIENT SAY</h2>
       <br> <br>
       <div class="reviews-container" id="reviewsContainer"></div>
@@ -458,6 +535,35 @@ if (container) {
   renderReviews();
   setInterval(renderReviews, 5000);
 }
+
+// Scroll Reveal Animation Reversible menggunakan Intersection Observer
+(function() {
+  // Fungsi untuk membuat observer
+  const observerOptions = {
+    threshold: 0.1, // Elemen terlihat 10% untuk memicu animasi
+    rootMargin: '0px 0px -50px 0px' // Mulai animasi sedikit sebelum elemen sepenuhnya terlihat
+  };
+
+  // Callback saat elemen masuk/keluar viewport
+  const observerCallback = (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Tambahkan kelas 'visible' saat elemen masuk viewport
+        entry.target.classList.add('visible');
+      } else {
+        // Hapus kelas 'visible' saat elemen keluar viewport
+        entry.target.classList.remove('visible');
+      }
+    });
+  };
+
+  // Buat observer baru
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // Ambil semua elemen dengan kelas 'scroll-reveal' dan observasi
+  const revealElements = document.querySelectorAll('.scroll-reveal');
+  revealElements.forEach(el => observer.observe(el));
+})();
   </script>
 </body>
 </html>

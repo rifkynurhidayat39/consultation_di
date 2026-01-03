@@ -11,7 +11,7 @@ use App\Http\Controllers\SambutanController;
 
 /*
 |--------------------------------------------------------------------------
-| Frontend
+| Frontend / User
 |--------------------------------------------------------------------------
 */
 Route::get('/', [FrontendController::class, 'home'])->name('home');
